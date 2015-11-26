@@ -1,0 +1,8 @@
+<tr>
+  <td></td>
+  <% if myform.nil? %>
+    <td><%= submit_tag(caption) %></td>
+  <% else %>
+    <td><%= myform.submit(caption) %></td>
+  <% end %>
+</tr>

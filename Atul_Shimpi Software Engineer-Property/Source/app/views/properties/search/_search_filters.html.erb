@@ -1,0 +1,32 @@
+<%= form_tag new_search_path, :method => 'get' do %>
+  <div style="background-color: lightgrey; top: 10px">
+    <table width="100%">
+      <tr>
+        <th align="left">Property Type</th>
+        <th align="left">Purchase Type</th>
+        <th align="left">Agent</th>
+        <th align="left">City</th>
+        <th align="left">Area</th>
+        <th align="left">Price</th>
+        <th align="left">Country</th>
+      </tr>
+
+      <tr>
+        <td> <%= select_tag 'property_type_id', options_from_collection_for_select(PropertyType.all, "id", "name")%> </td>
+        <td> <%= select_tag 'purchase_type_id', options_from_collection_for_select(PurchaseType.all, "id", "name")%> </td>
+        <td> <%= select_tag 'user_id', options_from_collection_for_select(User.all, "id", "name")%> </td>
+        <td> <%= select_tag 'city', options_from_collection_for_select(Addresses.all, "id", "city")%> </td>
+        <td> <%= text_field_tag 'area'%> </td>
+        <td> <%= text_field_tag 'price' %> </td>
+        <td> <%= select_tag 'country', options_from_collection_for_select(Addresses.all, "id", "country")%> </td>
+      </tr>
+
+      <tr>
+        <td><%= submit_tag('Apply Filter') %> </td>
+        <td><%= submit_tag('Remove Filter', :name => 'remove_filter') %> </td>
+        <td><%= submit_tag('Export to Pdf', :name => 'export_to_pdf') %> </td>
+      </tr>
+
+    </table>
+  </div>
+<% end %>

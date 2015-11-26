@@ -1,0 +1,47 @@
+<%= form_for(setup_property(@property)) do |property_form| %>
+  <%= render '/show_errors', myobject: @property %>
+
+  <div>
+  <table>
+    <%= render '/create_combo', myform: property_form, field_label: 'Property Type',
+               field_name: 'property_type_id', items: PropertyType.all, items_field_id: :id,
+               items_display_field_name: :name
+    %>
+
+    <%= render '/create_combo', myform: property_form, field_label: 'Purchase Type',
+               field_name: 'purchase_type_id', items: PurchaseType.all, items_field_id: :id,
+               items_display_field_name: :name
+    %>
+
+    <%= property_form.fields_for :address do |address_fields| %>
+       <tr>
+         <td align="right">Address Line1 </td>
+         <td> <%= address_fields.text_field :address1 %></td>
+       </tr>
+        <tr>
+          <td align="right">Address Line2 </td>
+          <td> <%= address_fields.text_field :address2 %></td>
+        </tr>
+        <tr>
+          <td align="right">City</td>
+          <td> <%= address_fields.text_field :city %></td>
+        </tr>
+        <tr>
+          <td align="right">Pincode </td>
+          <td> <%= address_fields.text_field :pincode %></td>
+        </tr>
+        <tr>
+          <td align="right">Country</td>
+          <td> <%= address_fields.text_field :country %></td>
+        </tr>
+    <% end %>
+
+    <%= render '/create_input', myform: property_form, field_label: 'Area (sq fts)', field_name: 'area',
+               field_value: 'India', is_password: false %>
+    <%= render '/create_input', myform: property_form, field_label: 'Price', field_name: 'price',
+               field_value: nil, is_password: false %>
+  </table>
+
+  <%= render '/create_submit_btn', myform: property_form, caption: 'Save' %>
+  </div>
+<% end %>

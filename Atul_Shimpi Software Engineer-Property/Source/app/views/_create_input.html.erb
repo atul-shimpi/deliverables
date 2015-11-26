@@ -1,0 +1,18 @@
+<tr>
+  <td align="right"> <%= field_label %> </td>
+
+  <% if myform.nil? %>
+    <% if is_password %>
+        <td align="left"> <%= password_field_tag(field_name, field_value) %> </td>
+      <% else %>
+        <td align="left"> <%= text_field_tag(field_name, field_value) %> </td>
+      <% end %>
+    <% else %>
+      <% if is_password %>
+        <td align="left"> <%= myform.password_field(field_name) %> </td>
+      <% else %>
+        <td align="left"> <%= myform.text_field(field_name) %> </td>
+    <% end %>
+  <% end %>
+
+</tr>

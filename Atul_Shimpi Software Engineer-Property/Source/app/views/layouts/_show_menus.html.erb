@@ -1,0 +1,15 @@
+<% role_id = session[:role_id] %>
+  <% if !role_id.nil?  %>
+    <div style="background-color: mediumturquoise; width: 100%; height: 25px">
+      <table border="0">
+        <tr>
+      <% app_menus(role_id).each do |caption, link| %>
+              <td width="5%">
+        <%= link_to caption, link %>
+              </td>
+          <% end %>
+              </tr>
+      </table>
+    </div>
+
+<% end %>

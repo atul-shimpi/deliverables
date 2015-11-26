@@ -1,0 +1,12 @@
+<h2>Agents and Customers</h2>
+<%= link_to 'New User', new_user_path if @view_type == 1%>
+<%= button_to "Export to PDF", users_pdf_index_path, :method => :get %>
+<br>
+
+<%= render 'layouts/start_table' %>
+  <%= render 'layouts/headers', headers: @headers %>
+  <% @users.each do |user| %>
+    <%= render 'users/show_single', user: user, view_type: @view_type %>
+  <% end %>
+<%= render 'layouts/end_table' %>
+

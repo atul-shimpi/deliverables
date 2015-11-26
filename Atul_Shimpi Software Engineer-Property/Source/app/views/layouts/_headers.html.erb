@@ -1,0 +1,7 @@
+<tr>
+  <% headers.each do |header| %>
+    <% header.each do |caption, width| %>
+      <%= content_tag(:th, caption, :width => width.to_s + '%') %>
+    <% end %>
+  <% end %>
+</tr>

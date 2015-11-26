@@ -1,0 +1,16 @@
+<div class= "Sign_Form">
+  <h1>Log in</h1>
+
+  <%= form_tag(action: 'create') do  %>
+    <table width="60%" align="center">
+      <%= render '/create_input', myform: nil, field_label: 'Email', field_name: 'email', field_value: 'shimpiatul@hotmail.com', is_password: false %>
+      <%= render '/create_input', myform: nil, field_label: 'Password', field_name: 'login_password', field_value: 'Atul@2015', is_password: true %>
+    </table>
+
+    <%= render '/create_submit_btn', myform: nil, caption: 'Login' %>
+  <% end %>
+
+  <p>Dont have account ? <%= link_to "Register now!", new_user_path %></p>
+</div>
+
+

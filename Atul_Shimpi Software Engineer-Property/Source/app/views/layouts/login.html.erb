@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RestPOS</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if flash[:color]== "valid" %>
+    <div class="valid_notice">
+      <p><%= flash[:notice]%></p>
+    </div>
+<% elsif flash[:color]== "invalid"%>
+    <div class="invalid_notice">
+      <p><%=flash[:notice]%></p>
+    </div>
+<% else %>
+    <div class="notice">
+      <p><%=flash[:notice]%></p>
+    </div>
+<% end %>
+<br><br><br><br><br><br>
+<%= yield %>
+
+
+<div id="foot" style="color:#292743;font-size:13px;width:1280px;;position:absolute;" align="center">
+</div>
+</body>
+</html>

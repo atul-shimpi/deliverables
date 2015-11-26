@@ -1,0 +1,8 @@
+<h2>Properties</h2>
+<%= link_to 'New Property', new_property_path if @view_type == 1%>
+<%= render 'layouts/start_table' %>
+<%= render 'layouts/headers', headers: @headers %>
+<% @properties.each do |property| %>
+    <%= render 'properties/show_single', property: property, view_type: @view_type %>
+<% end %>
+<%= render 'layouts/end_table' %>

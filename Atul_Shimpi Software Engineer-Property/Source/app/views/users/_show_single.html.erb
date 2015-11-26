@@ -1,0 +1,9 @@
+<tr>
+  <td><%= user.name %></td>
+  <td><%= user.role.name %></td>
+  <td><%= user.email_id %></td>
+
+  <% if @view_type == 1 %>
+      <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+</tr>

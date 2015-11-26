@@ -1,0 +1,23 @@
+<tr>
+  <td><%= property.property_type.name %></td>
+  <td><%= property.purchase_type.name %></td>
+  <td><%= property.address.full_address %></td>
+  <td><%= property.user.name %></td>
+  <td><%= property.area %></td>
+  <td><%= property.price %></td>
+
+  <% if view_type != 1 %>
+    <td><%= link_to 'Express Interest',
+                     interest_mail_path(:property_id => property.id),
+                     data: { confirm: 'Do you want express interest by mail ?' }
+       %>
+    </td>
+  <% end %>
+
+  <% if view_type == 1 %>
+    <td><%= link_to 'Show', property %></td>
+    <td><%= link_to 'Edit', edit_property_path(property) %></td>
+    <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Delete' } %></td>
+  <% end %>
+</tr>
+

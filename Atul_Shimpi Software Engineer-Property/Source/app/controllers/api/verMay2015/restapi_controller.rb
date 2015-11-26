@@ -1,0 +1,2 @@
+class RESTApiController < ApplicationController
+end

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+Hi <%= @user.name %>,
+<p>
+  <%= @user.name %> is interested in below property posted by you.
+  <p>
+  <%= @property.property_type.name %>
+  <br>
+  <%= @property.addresses.full_address %>
+</p>
+</body>
+</html>

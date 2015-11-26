@@ -1,0 +1,27 @@
+<%= form_for(@user) do |user_form| %>
+  <%= render '/show_errors', myobject: @user %>
+
+  <table>
+    <%= render '/create_combo', myform: user_form, field_label: 'I want to', field_name: 'role_id', items: Role.where(id: [2,3,4]),
+               items_field_id: :id, items_display_field_name: :description
+    %>
+    <%= render '/create_input', myform: user_form, field_label: 'Full Name', field_name: 'name', field_value: nil,
+               is_password: false
+    %>
+    <%= render '/create_input', myform: user_form, field_label: 'Email', field_name: 'email_id', field_value: nil,
+               is_password: false
+    %>
+    <%= render '/create_input', myform: user_form, field_label: 'Password', field_name: 'password',
+               field_value: nil, is_password: true
+    %>
+
+    <%= render '/create_input', myform: user_form, field_label: 'Confirm Password', field_name: 'password_confirmation',
+               field_value: nil, is_password: true
+    %>
+
+
+  </table>
+  <br>
+  <%= render '/create_submit_btn', myform: user_form, caption: 'Create Account' %>
+<% end %>
+

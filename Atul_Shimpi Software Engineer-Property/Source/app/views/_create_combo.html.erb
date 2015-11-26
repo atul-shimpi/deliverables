@@ -1,0 +1,8 @@
+<tr>
+  <td align="right"> <%= field_label %> </td>
+  <% if myform.nil? %>
+      <td align="left"> <%= select_tag "people", options_from_collection_for_select(items, "id", "name")%> </td>
+  <% else %>
+    <td align="left"> <%= myform.collection_select field_name, items, items_field_id, items_display_field_name %> </td>
+  <% end %>
+</tr>

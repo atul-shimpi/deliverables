@@ -1,0 +1,2 @@
+module UsersPdfHelper
+end
